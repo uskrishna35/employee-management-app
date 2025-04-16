@@ -1,0 +1,56 @@
+/* Ensure the whole layout is structured properly */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Fix Header at the Top */
+.app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background:red;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 1000;
+}
+
+/* Push content below the header */
+.sidenav-container {
+  margin-top: 64px; /* Adjust to match toolbar height */
+}
+
+/* Table Styling */
+.table-container {
+  padding: 16px;
+  overflow-x: auto;
+  margin-top: 64px; /* Push table below the header */
+}
+
+/* Make table responsive */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell, td.mat-cell {
+  text-align: center;
+}
+
+button {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    padding: 8px;
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

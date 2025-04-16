@@ -1,0 +1,34 @@
+.example-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+ 
+}
+
+.example-container2{
+  display: flex;
+  justify-content: space-evenly;
+ 
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; // Align buttons to the right
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-button {
+  background-color: #d32f2f; // Red color
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #b71c1c; // Darker red on hover
+  
+}
+
+
+
+
+

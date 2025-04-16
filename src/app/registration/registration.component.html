@@ -1,0 +1,171 @@
+<mat-toolbar class="app-header">
+  <button mat-icon-button (click)="toggleSidebar()" aria-label="Toggle sidenav">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>MAGNOLIA</span>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="Favorite">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="Share">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Sidebar and Main Content -->
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" [(opened)]="isSidebarOpen" class="sidebar">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">
+         camp management
+      </a>
+      <a mat-list-item routerLink="/settings">
+         employee Registration
+      </a>
+      
+      <a mat-list-item routerLink="/logout">
+        <mat-icon>exit_to_app</mat-icon> Logout
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="main-content">
+    <!-- First Row (Three Dropdowns) -->
+    <div class="dropdown-container">
+      <mat-form-field appearance="outline" class="dropdown">
+        <mat-label>Select Organization</mat-label>
+        <mat-select (selectionChange)="onOrganizationChange($event)">
+          <mat-option *ngFor="let org of organizations" [value]="org">
+            {{ org.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      
+
+      <mat-form-field appearance="outline" class="dropdown">
+        <mat-label>Facility Name</mat-label>
+        <mat-select (selectionChange)="onFacilityChange($event)">
+          <mat-option *ngFor="let facility of facilities" [value]="facility">
+            {{ facility.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+
+      <mat-form-field appearance="outline" class="dropdown">
+        <mat-label>Camp Name</mat-label>
+        <mat-select [(value)]="selectedCamp" (selectionChange)="onCampChange($event)">
+          <mat-option *ngFor="let camp of healthCamps" [value]="camp">
+            {{ camp.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Second Row (Two Dropdowns) -->
+    <div class="dropdown-container">
+      <mat-form-field appearance="outline" class="dropdown">
+        <mat-label>Bar Code</mat-label>
+        <mat-select>
+          <mat-option value="opt1">Option A</mat-option>
+          <mat-option value="opt2">Option B</mat-option>
+          <mat-option value="opt3">Option C</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="dropdown">
+        <mat-label>Visit Date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="visitDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      
+    </div> 
+
+    <!-- Third Row (One Dropdown) -->
+    <div class="dropdown-single">
+     <!-- Employee ID Dropdown -->
+<!-- Employee ID Dropdown -->
+<mat-form-field appearance="outline" class="dropdown">
+  <mat-label>Select Employee ID</mat-label>
+  <mat-select (selectionChange)="onEmployeeSelect($event.value)">
+    <mat-option *ngFor="let emp of employees" [value]="emp">
+      {{ emp.emp_id }} - {{ emp.first_name }} {{ emp.last_name }} 
+    </mat-option>
+  </mat-select>
+ 
+</mat-form-field>
+
+<button mat-fab extended class="matbtn" (click)="openAddEmployeeDialog()"*ngIf="isButtonVisible" >
+  <mat-icon class="center-icon">add</mat-icon>
+</button>
+</div>
+
+
+    
+
+
+    <div class="select">
+      <mat-form-field class="example-full-width" >
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="employee.first_name" name="first_name">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="employee.last_name">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="employee.email">
+      </mat-form-field>
+    </div>
+    
+    <div class="select2">
+      <mat-form-field class="example-full-width">
+        <mat-label>Contact Number</mat-label>
+        <input matInput [(ngModel)]="employee.mobile_no">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Age</mat-label>
+        <input matInput [(ngModel)]="employee.age">
+      </mat-form-field>
+    
+      <mat-form-field class="example-full-width">
+        <mat-label>Gender</mat-label>
+        <input matInput [(ngModel)]="employee.gender">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="dep">
+        <mat-label>Department Name</mat-label>
+        <mat-select [(ngModel)]="selectedDepartment" name="department">
+          <mat-option *ngFor="let dept of departments" [value]="dept.id">
+            {{ dept.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </div>
+    
+
+<!-- Action Buttons at Bottom Right -->
+<div class="button-container">
+  <button mat-button class="cancel-btn">Cancel</button>
+  <button mat-raised-button class="red-btn" (click)="saveHealthCheckRegistration()">Save</button>
+  <button mat-raised-button class="red-btn" (click)="naviagteToRes()">Save and Continue</button>
+</div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

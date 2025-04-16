@@ -1,0 +1,95 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" [opened]="isSidebarOpen" class="sidenav">
+    <mat-toolbar class="sidenav-header">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Camp Management</a>
+      <a mat-list-item href="#">lab Profile</a>
+      <a mat-list-item href="#">Settings</a>
+      <a mat-list-item href="#">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="main-content">
+    <!-- Top Toolbar -->
+    <mat-toolbar class="top-toolbar">
+      <button mat-icon-button (click)="toggleSidebar()" aria-label="Toggle sidebar">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="spacer"></span>
+      <button mat-icon-button aria-label="Favorite">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Share">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Dropdowns and Form Fields -->
+    <div class="content">
+      <mat-form-field class="full-width">
+        <mat-label>Name</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option value="option1">HEALTH RISK INDEX</mat-option>
+          
+        </mat-select>
+      </mat-form-field>
+
+      <div class="dropdown-group">
+        <mat-form-field class="dropdown">
+          <mat-label>  Is Image Upload applicable?
+          </mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Yes</mat-option>
+             <mat-option value="option2">No</mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="dropdown">
+          <mat-label>Is Doctor comments Applicable?
+          </mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Yes</mat-option>
+             <mat-option value="option2">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="dropdown">
+          <mat-label>Is Report Impression Required?
+          </mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Yes</mat-option>
+             <mat-option value="option2">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="dropdown">
+          <mat-label>Is Report Impression Required?
+          </mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Yes</mat-option>
+             <mat-option value="option2">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Dropdown with API Data -->
+      <mat-form-field class="full-width">
+        <mat-label>Select a Test</mat-label>
+        <mat-select [(ngModel)]="selectedOption">
+          <mat-option *ngFor="let option of dropdownOptions" [value]="option.name">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

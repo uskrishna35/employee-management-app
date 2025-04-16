@@ -1,0 +1,133 @@
+/* Toolbar */
+
+
+.app-header {
+  background-color:red;
+  color: white;
+  padding: 0 16px;
+}
+
+/* Sidebar */
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #f4f4f4;
+}
+
+.mat-nav-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.mat-nav-list a:hover {
+  background-color: #ddd;
+}
+
+/* Main Content */
+.main-content {
+  padding: 20px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* Dropdown Containers */
+.dropdown-container {
+  // margin-top: 20px;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.dropdown-single {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 450px;
+}
+
+.dropdown {
+  flex: 1;
+  min-width: 200px;
+}
+
+.select{
+  // margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.select2{
+  // margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.example-full-width{
+  width: 350px;
+}
+
+
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 10px;
+  // margin-top: 50px;
+
+}
+
+/* Cancel Button */
+.cancel-btn {
+  color: #f44336; /* Red color */
+}
+ 
+.red-btn {
+  background-color: #f44336 !important; /* Force Red */
+  color: white !important;
+}
+
+.matbtn{
+  margin-left: 10px;
+   margin-bottom: 25px;
+   border-radius: 52px;
+
+}
+
+.center-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.dep{
+  margin-top: 10px;
+  width: 450px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .button-container {
+    justify-content: center; /* Center align on small screens */
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+}

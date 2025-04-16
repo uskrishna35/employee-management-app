@@ -1,0 +1,71 @@
+<form #employeeForm="ngForm">
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Employee ID</mat-label>
+            <input matInput [(ngModel)]="employee.emp_id" name="emp_id" required />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="employee.first_name" name="first_name" required />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="employee.last_name" name="last_name" />
+        </mat-form-field>
+    </div>
+
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="employee.email" name="email" type="email" required />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Contact Number</mat-label>
+            <input matInput [(ngModel)]="employee.mobile_no" name="mobile_no" type="mobile_no" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select [(ngModel)]="employee.gender" name="gender">
+                <mat-option value="Male">Male</mat-option>
+                <mat-option value="Female">Female</mat-option>
+                <mat-option value="Other">Other</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput [(ngModel)]="employee.age" name="age" type="number" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Employment Type</mat-label>
+            <mat-select [(ngModel)]="employee.employee_type" name="employee_type">
+                <mat-option value="Full-time">Full-time</mat-option>
+                <mat-option value="Part-time">Part-time</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field  class="dep">
+            <mat-label>Department Name</mat-label>
+            <mat-select [(ngModel)]="selectedDepartment" name="selectedDepartment">
+              <mat-option *ngFor="let dept of department" [value]="dept.id">
+                {{ dept.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+
+    <!-- Save & Cancel Buttons Aligned to the Right -->
+    <div class="button-container">
+        <button mat-button (click)="closeDialog()">Cancel</button>
+        <button mat-raised-button class="save-button" (click)="saveEmployee()" [disabled]="!employeeForm.valid">
+            Save
+        </button>
+    </div>
+</form>
