@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MagnoliaProject
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
@@ -57,3 +58,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# employee-management-app
+>>>>>>> 1ad2c48b2c301e883d57a12c88f3c8674b25c41e
